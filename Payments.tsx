@@ -1,0 +1,33 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Check, CircleDollarSign, Copy, FileCheck2, LockKeyhole, Receipt, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+
+const charges = [
+  { label: "Import duty", detail: "Customs assessment · TZS", amount: "2,430,000", status: "Due" },
+  { label: "Port handling", detail: "Dar es Salaam terminal · TZS", amount: "680,000", status: "Due" },
+  { label: "Delivery & final mile", detail: "Doorstep delivery · TZS", amount: "420,000", status: "Due" },
+];
+
+export default function Payments() {
+  const [controlNumber, setControlNumber] = useState("");
+  const [generated, setGenerated] = useState(false);
+
+  const generateControlNumber = () => {
+    setControlNumber("9912 4829 1047 2261");
+    setGenerated(true);
+  };
+
+  return (
+    <main className="bg-[#f3f5f1]">
+      <section className="bg-[#0b1a2a] py-16 text-white sm:py-20"><div className="container"><div className="grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-end"><div className="max-w-2xl"><p className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#e7a15a]"><span className="h-px w-8 bg-[#73c4bd]" /> 02 / Financial clarity</p><h1 className="mt-6 max-w-3xl font-display text-6xl font-bold uppercase leading-[0.86] tracking-[-0.04em] sm:text-8xl">Taxes &<br /><span className="text-[#e7a15a]">cargo.</span></h1><p className="mt-7 max-w-lg text-base leading-7 text-[#b7c8c2]">All your shipment charges, arranged in one place. Generate a control number and keep the payment handoff moving.</p></div><div className="rounded-[22px] border border-[#e7a15a]/30 bg-[#e7a15a]/10 p-6"><div className="flex items-center gap-3"><span className="flex size-10 items-center justify-center rounded-xl bg-[#e7a15a]/20 text-[#e7a15a]"><CircleDollarSign size={20} /></span><div><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#cda77e]">Total outstanding</p><p className="mt-1 font-display text-3xl font-bold">TZS 3,530,000</p></div></div><div className="mt-6 flex items-center gap-2 text-xs text-[#c3cbc3]"><LockKeyhole size={14} className="text-[#73c4bd]" /> Secure payment reference · TAL-48291</div></div></div></div></section>
+
+      <section className="container py-12 sm:py-16"><div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="rounded-[24px] border border-[#d7e0da] bg-white/70 p-6 sm:p-8"><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6b8b84]">Shipment charges</p><h2 className="mt-2 font-display text-3xl font-bold uppercase text-[#102234]">TAL-48291</h2></div><span className="rounded-full bg-[#f8e6d2] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#a56c32]">3 charges due</span></div><div className="mt-8 divide-y divide-[#e2e9e4]">{charges.map((charge) => <div key={charge.label} className="flex items-center justify-between gap-4 py-5 first:pt-0"><div className="flex min-w-0 items-center gap-3"><span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eef4f0] text-[#6a958b]"><Receipt size={18} /></span><div className="min-w-0"><p className="text-sm font-bold text-[#203d3b]">{charge.label}</p><p className="mt-1 truncate text-xs text-[#82918b]">{charge.detail}</p></div></div><div className="text-right"><p className="whitespace-nowrap font-display text-xl font-bold text-[#203d3b]">{charge.amount}</p><span className="text-[9px] font-bold uppercase tracking-[0.14em] text-[#b37b3f]">{charge.status}</span></div></div>)}</div><div className="mt-5 flex items-center justify-between border-t border-[#d7e0da] pt-5"><span className="text-sm font-bold text-[#5e766f]">Total due</span><span className="font-display text-3xl font-bold text-[#102234]">TZS 3,530,000</span></div></div>
+
+        <div className="rounded-[24px] bg-[#102234] p-6 text-white shadow-[0_20px_60px_rgba(14,34,51,0.12)] sm:p-8"><div className="flex items-start justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#73c4bd]">Payment handoff</p><h2 className="mt-2 font-display text-3xl font-bold uppercase">Generate control number</h2></div><span className="flex size-11 items-center justify-center rounded-xl bg-[#73c4bd]/15 text-[#73c4bd]"><FileCheck2 size={20} /></span></div><p className="mt-5 text-sm leading-6 text-[#a9bdb8]">Use the reference below when paying through your preferred bank or mobile money channel.</p>{generated ? <div className="mt-8 rounded-2xl border border-[#73c4bd]/40 bg-[#17384a] p-5"><div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#73c4bd]"><Check size={14} /> Control number ready</div><p className="mt-4 font-display text-3xl font-bold tracking-[0.06em] text-white">{controlNumber}</p><button onClick={() => navigator.clipboard?.writeText(controlNumber)} className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#a7c9c0] hover:text-white"><Copy size={13} /> Copy number</button></div> : <div className="mt-8"><label className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#8ca8a2]">Choose payment bundle</label><div className="mt-3 flex items-center justify-between rounded-xl border border-white/10 bg-[#0b1a2a] px-4 py-4"><div><p className="text-sm font-bold">All outstanding charges</p><p className="mt-1 text-xs text-[#78938d]">Duty + port + delivery</p></div><p className="font-display text-xl font-bold text-[#e7a15a]">TZS 3.53M</p></div><Button onClick={generateControlNumber} className="mt-4 h-12 w-full rounded-xl bg-[#e7a15a] font-bold text-[#102234] hover:bg-[#f1b675]">Generate control number <ArrowRight size={16} /></Button></div>}<div className="mt-8 flex items-center gap-2 border-t border-white/10 pt-5 text-[11px] text-[#78938d]"><ShieldCheck size={15} className="text-[#73c4bd]" /> Reference stays valid for 72 hours.</div></div>
+      </div></section>
+
+      <section className="border-t border-[#dbe2dc] bg-[#e1e9e4] py-10"><div className="container grid gap-5 sm:grid-cols-3">{[{ title: "Clear breakdown", text: "See exactly what each amount covers." }, { title: "One reference", text: "A single control number for the whole handoff." }, { title: "Ready when you are", text: "Pay through bank or mobile money." }].map((item, index) => <div key={item.title} className="flex gap-3"><span className="font-display text-xl font-bold text-[#7d9f96]">0{index + 1}</span><div><h3 className="text-sm font-bold text-[#294b46]">{item.title}</h3><p className="mt-1 text-xs leading-5 text-[#71877f]">{item.text}</p></div></div>)}</div></section>
+    </main>
+  );
+}
