@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, Box, CheckCircle2, ChevronRight, CircleDollarSign, FileText, MapPin, Ship, Truck, Waves } from "lucide-react";
+import { ArrowRight, BarChart3, Box, CheckCircle2, ChevronRight, CircleDollarSign, FileText, Globe2, MapPin, Ship, Truck, Warehouse, Waves } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 
 const services = [
-  { eyebrow: "01 / Maritime visibility", title: "At sea", body: "See where your cargo is on the water, when it will reach port, and what happens next.", href: "/tracking/sea", icon: Ship, accent: "#73c4bd" },
-  { eyebrow: "02 / Financial clarity", title: "Taxes & cargo", body: "Keep every charge together, generate a control number, and move from due to paid without the guesswork.", href: "/payments", icon: CircleDollarSign, accent: "#e9a05b" },
-  { eyebrow: "03 / Last-mile control", title: "At land", body: "Follow the final handoffs from clearance to delivery at your door, with every milestone in view.", href: "/tracking/land", icon: Truck, accent: "#a8a6dd" },
+  { eyebrow: "01 / Global sourcing", title: "Order with us", body: "Buy from different parts of the world and let Talism coordinate the route to your door.", href: "/order", icon: Globe2, accent: "#73c4bd" },
+  { eyebrow: "02 / Network coverage", title: "Warehouses", body: "Find Talism-owned and trusted partner receiving points across the world.", href: "/warehouses", icon: Warehouse, accent: "#e9a05b" },
+  { eyebrow: "03 / Maritime visibility", title: "At sea", body: "See where your cargo is on the water, when it will reach port, and what happens next.", href: "/tracking/sea", icon: Ship, accent: "#a8a6dd" },
+  { eyebrow: "04 / Financial clarity", title: "Taxes & cargo", body: "Keep every charge together, generate a control number, and move from due to paid.", href: "/payments", icon: CircleDollarSign, accent: "#84b7a2" },
+  { eyebrow: "05 / Last-mile control", title: "At land", body: "Follow the final handoffs from clearance to delivery at your door.", href: "/tracking/land", icon: Truck, accent: "#73a9c4" },
 ];
 
 export default function Home() {
@@ -63,7 +65,7 @@ export default function Home() {
 
       <section className="border-b border-[#dbe2dc] bg-[#0b1a2a] pb-20 text-white">
         <div className="container">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
