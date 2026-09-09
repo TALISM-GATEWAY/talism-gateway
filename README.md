@@ -22,6 +22,8 @@ Open the local URL printed by Vite.
 
 This repository includes `vercel.json`, which tells Vercel to use Vite, run `npm run build`, publish the `dist` folder, and route direct page URLs back to the React app.
 
+The Vercel project must use the repository root (`.`) as its Root Directory. The root must contain `index.html`, `package.json`, and `vite.config.ts`.
+
 ### Option A: Import the GitHub repository
 
 1. Push the project files to GitHub.
