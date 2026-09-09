@@ -7,12 +7,16 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import OrderWithUs from "./pages/OrderWithUs";
 import Payments from "./pages/Payments";
 import TrackingLand from "./pages/TrackingLand";
 import TrackingSea from "./pages/TrackingSea";
+import Warehouses from "./pages/Warehouses";
 
 const navItems = [
   { href: "/", label: "Overview" },
+  { href: "/order", label: "Order with us" },
+  { href: "/warehouses", label: "Warehouses" },
   { href: "/tracking/sea", label: "At sea" },
   { href: "/payments", label: "Payments" },
   { href: "/tracking/land", label: "At land" },
@@ -109,6 +113,8 @@ function Router() {
       <WouterRouter base={routerBase}>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/order" component={OrderWithUs} />
+          <Route path="/warehouses" component={Warehouses} />
           <Route path="/tracking/sea" component={TrackingSea} />
           <Route path="/payments" component={Payments} />
           <Route path="/tracking/land" component={TrackingLand} />
