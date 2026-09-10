@@ -92,20 +92,20 @@ function SiteLayout({ children }: { children: React.ReactNode }) {
       {children}
 
       <footer className="border-t border-[#dbe2dc] bg-[#f3f5f1]">
-        <div className="container flex flex-col gap-8 py-10 sm:flex-row sm:items-end sm:justify-between">
+        <div className="container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-[#0b1a2a] text-[#f5a45a]"><Anchor size={16} /></span>
+              <span className="flex size-9 items-center justify-center rounded-lg bg-[#0b1a2a] text-[#f5a45a]"><Anchor size={17} /></span>
               <span className="font-display text-lg font-bold tracking-[0.1em] text-[#0b1a2a]">TALISM-GATEWAY</span>
             </div>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-[#71827d]">A single operational view for every handoff between port, road, and doorstep.</p>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-[#71827d]">A single operational view for every handoff between global supplier, warehouse, port, road, and doorstep.</p>
+            <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#cbdad2] bg-white/60 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.13em] text-[#64857d]"><span className="size-1.5 rounded-full bg-[#6ab89f]" /> Frontend MVP demo</span>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#71827d]">
-            <span>© 2026 Talism Gateway</span>
-            <span>Customer portal</span>
-            <span>Need help? support@talism-gateway.com</span>
-          </div>
+          <div><p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#6b8b84]">Explore</p><div className="mt-4 flex flex-col items-start gap-3 text-sm font-bold text-[#365951]"><Link href="/order" className="hover:text-[#0b1a2a]">Order with us</Link><Link href="/warehouses" className="hover:text-[#0b1a2a]">Warehouses</Link><Link href="/dashboard" className="hover:text-[#0b1a2a]">Track shipment</Link><Link href="/how-it-works" className="hover:text-[#0b1a2a]">How it works</Link></div></div>
+          <div><p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#6b8b84]">Customer care</p><div className="mt-4 flex flex-col items-start gap-3 text-sm font-bold text-[#365951]"><Link href="/payments" className="hover:text-[#0b1a2a]">Payments</Link><Link href="/contact" className="hover:text-[#0b1a2a]">Contact operations</Link><a href="mailto:support@talism-gateway.com" className="hover:text-[#0b1a2a]">Email support</a><span className="font-normal text-[#71827d]">Mon–Fri · 08:00–17:00 EAT</span></div></div>
+          <div><p className="text-[10px] font-bold uppercase tracking-[0.17em] text-[#6b8b84]">Stay in the loop</p><p className="mt-4 text-sm leading-6 text-[#71827d]">Get a clear answer on your next shipment, sourcing request, or warehouse handoff.</p><Link href="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#0b1a2a] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.13em] text-white transition hover:bg-[#173c3d]">Talk to operations <ArrowUpRight size={14} /></Link></div>
         </div>
+        <div className="border-t border-[#dbe2dc]"><div className="container flex flex-col gap-3 py-5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#81918b] sm:flex-row sm:items-center sm:justify-between"><span>© 2026 TALISM-GATEWAY</span><span>Demo data shown for product presentation</span><span>Global cargo coordination</span></div></div>
       </footer>
     </div>
   );
