@@ -5,10 +5,14 @@ import { useState } from "react";
 import { Link, Route, Router as WouterRouter, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import HowItWorks from "./pages/HowItWorks";
 import NotFound from "./pages/NotFound";
 import OrderWithUs from "./pages/OrderWithUs";
 import Payments from "./pages/Payments";
+import ShipmentDetail from "./pages/ShipmentDetail";
 import TrackingLand from "./pages/TrackingLand";
 import TrackingSea from "./pages/TrackingSea";
 import Warehouses from "./pages/Warehouses";
@@ -17,9 +21,10 @@ const navItems = [
   { href: "/", label: "Overview" },
   { href: "/order", label: "Order with us" },
   { href: "/warehouses", label: "Warehouses" },
-  { href: "/tracking/sea", label: "At sea" },
+  { href: "/dashboard", label: "Track shipment" },
   { href: "/payments", label: "Payments" },
-  { href: "/tracking/land", label: "At land" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -113,8 +118,12 @@ function Router() {
       <WouterRouter base={routerBase}>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/shipment/:id" component={ShipmentDetail} />
           <Route path="/order" component={OrderWithUs} />
           <Route path="/warehouses" component={Warehouses} />
+          <Route path="/how-it-works" component={HowItWorks} />
+          <Route path="/contact" component={Contact} />
           <Route path="/tracking/sea" component={TrackingSea} />
           <Route path="/payments" component={Payments} />
           <Route path="/tracking/land" component={TrackingLand} />
